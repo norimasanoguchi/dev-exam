@@ -1,0 +1,27 @@
+<%= notice %>
+
+<h1>物件一覧</h1>
+
+<table>
+  <tr>
+    <th><strong>物件名</strong></th>    
+    <th><strong>賃料</strong></th>   
+    <th><strong>住所</strong></th>   
+    <th><strong>築年数</strong></th>   
+    <th><strong>備考</strong></th>   
+  </tr>
+
+  <% @estates.each do |estate| %>
+    <tr>
+      <td><%= estate.name %></td>
+      <td><%= estate.rent %></td>
+      <td><%= estate.address %></td>
+      <td><%= estate.memo %></td>
+      <td><%= link_to( '詳細', estate_path(estate.id)) %></td>
+      <td><%= link_to( '編集', edit_estate_path(estate.id)) %></td>
+      <td><%= link_to( '削除', estate_path(estate.id), method: :delete, data: {confirm: "本当に削除していいですか？"}) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to( '物件を登録する', new_estate_path) %></p>
