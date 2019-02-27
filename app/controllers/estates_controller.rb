@@ -26,17 +26,13 @@ class EstatesController < ApplicationController
   
   def edit
     @estate = Estate.find(params[:id])
-    if @estate.save
-      redirect_to( estates_path, notice:"編集しました")
-    else
-      render 'edit'
-    end
+    @estate.nearest_stations.build
   end
   
   def update
     @estate = Estate.find(params[:id])
     if @estate.update(estate_params)
-      redirect_to(estates_path)
+      redirect_to( estates_path, notice:"編集しました")
     else
       render 'edit'
     end
