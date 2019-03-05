@@ -5,7 +5,7 @@ class EstatesController < ApplicationController
   
   def new
     @estate = Estate.new
-    @estate.nearest_stations.build
+    2.times{@estate.nearest_stations.build}
   end
   
   def create
@@ -26,7 +26,6 @@ class EstatesController < ApplicationController
   
   def edit
     @estate = Estate.find(params[:id])
-    @estate.nearest_stations.build
   end
   
   def update
@@ -49,5 +48,6 @@ class EstatesController < ApplicationController
     def estate_params
       params.require(:estate).permit(:name, :address, :rent, :age, :memo, nearest_stations_attributes: [:id, :line, :station_name, :distance_on_foot])
     end
+  
   
 end

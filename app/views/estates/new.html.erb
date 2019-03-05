@@ -21,9 +21,10 @@
   
   <hr>
   
-  <h3>最寄り駅1</h3>
+  
   
   <%= f.fields_for :nearest_stations do |s| %>
+    <h3>最寄り駅<%= s.index + 1 %></h3>
   
     <p><%= s.label :路線名 %><br>
     <%= s.text_field :line %></p>
@@ -36,20 +37,6 @@
     
   <% end %>
   
-<h3>最寄り駅2</h3>
-  
-  <%= f.fields_for :nearest_stations do |s| %>
-  
-    <p><%= s.label :路線名 %><br>
-    <%= s.text_field :line %></p>
-    
-    <p><%= s.label :駅名 %><br>
-    <%= s.text_field :station_name %></p>
-    
-    <p><%= s.label :徒歩分数 %><br>
-    <%= s.number_field :distance_on_foot %></p>
-    
-  <% end %>
     
   <p><%= f.submit("登録する") %></p>
   
