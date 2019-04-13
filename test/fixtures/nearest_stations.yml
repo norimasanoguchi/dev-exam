@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  line: 
+  station_name: 
+  distance_on_foot: 1
+
+two:
+  line: 
+  station_name: 
+  distance_on_foot: 1
